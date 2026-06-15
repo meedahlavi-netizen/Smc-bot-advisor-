@@ -1,0 +1,69 @@
+# SMC Bot Advisor Configuration
+
+# API Settings
+api:
+  exchange: "binance"
+  api_key: "${API_KEY}"
+  api_secret: "${API_SECRET}"
+  sandbox_mode: true
+
+# Trading Pairs
+trading:
+  pairs:
+    - "BTC/USDT"
+    - "ETH/USDT"
+  timeframes:
+    - "1h"
+    - "4h"
+    - "1d"
+
+# SMC Pattern Detection
+smc_patterns:
+  detect_order_blocks: true
+  detect_liquidity_levels: true
+  detect_supply_demand: true
+  detect_market_structure: true
+  detect_fair_value_gaps: true
+  sensitivity: 0.7
+  min_candles: 5
+
+# Risk Management
+risk_management:
+  account_risk_percent: 2.0
+  max_daily_loss_percent: 5.0
+  position_size_type: "fixed"
+  default_position_size: 0.1
+  default_risk_reward_ratio: 1.5
+  max_leverage: 1.0
+  max_open_positions: 5
+  max_exposure_percent: 30.0
+
+# Signal Generation
+signals:
+  min_confidence_threshold: 0.65
+  require_confluence: true
+  confluence_count: 2
+  validate_higher_timeframe: true
+  validate_market_structure: true
+
+# Charting
+charting:
+  enabled: true
+  update_interval: 300
+  save_charts: true
+  chart_output_dir: "./charts"
+  show_order_blocks: true
+  show_liquidity_levels: true
+  show_supply_demand: true
+  show_signals: true
+  show_risk_zones: true
+
+# Logging
+logging:
+  level: "INFO"
+  log_file: "./logs/smc_bot.log"
+
+# Database Settings
+database:
+  type: "sqlite"
+  path: "./trades.db"
